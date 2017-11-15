@@ -39,12 +39,30 @@ public class PuzzleApp {
 		//prueba 4
 		/*int[] a = {4, 5, 1};
 		int[] b = {3, 0, 8};
-		int[] c = {6, 7, 2};
+		int[] c = {6, 7, 2};*/
+		
+		//prueba 4
+		int[] a = {0, 7, 6};
+		int[] b = {4, 5, 2};
+		int[] c = {1, 3, 8};
 
-		int[][] blocks = {a, b, c};*/
+		int[][] block = {a, b, c};
+		for (int i = 0; i < block.length; i++) {
+			for (int j = 0; j < block[i].length; j++) {
+				System.out.print(block[i][j]);
+			}
+			System.out.println();
+		}
 		
 		int[][] blocks = getBlocksFromFile();
+		for (int i = 0; i < blocks.length; i++) {
+			for (int j = 0; j < blocks[i].length; j++) {
+				System.out.print(blocks[i][j]);
+			}
+			System.out.println();
+		}
 		Puzzle puzzle = new Puzzle(blocks);
+		puzzle.printPuzzle();
 		PuzzleSolver solver = new PuzzleSolver(puzzle);
 		solver.solve();	
 
@@ -67,12 +85,14 @@ public class PuzzleApp {
 					line += aux + ",";
 				}				
 				String[] lines = line.split(",");				
-				int[][] mtrx = new int[lines.length][lines[0].length()];
+				String[] numbers = null;
+				
+				int[][] mtrx = new int[lines.length][lines.length];
 				for (int i = 0; i < mtrx.length; i++) {
-					line = lines [i];
+					numbers = lines[i].split(" ");
 					for (int j = 0; j < mtrx.length; j++) {
-						mtrx[i][j] = Integer.parseInt(line.substring(j, j+1));
-					}
+						mtrx[i][j] = Integer.parseInt(numbers[j].trim());
+					}					
 				}
 				matrix = mtrx;
 				lee.close();

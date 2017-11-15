@@ -38,6 +38,7 @@ public class PuzzleSolver {
 	 */
 	public void solve() {
 		while(true) {
+			//System.out.println("me quedo");
 			//COMIENZO
 			//OBTENGO EL MOVIMIENTO CON MENOR PRIORIDAD
 			//ENTRE MENOR PRIORIDAD MAS CERCA DEL OBJETIVO
